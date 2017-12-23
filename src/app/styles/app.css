@@ -1,4 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
 @import './page';
+@import './header';
+@import './media';
 
 body {
   margin: 0;

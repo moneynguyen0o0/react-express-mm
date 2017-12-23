@@ -1,0 +1,7 @@
+.StationImages {
+  &-imageWrapper {
+    img {
+      width: 100%;
+    }
+  }
+}

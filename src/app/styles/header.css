@@ -1,0 +1,18 @@
+.Header {
+  .nav-item {
+    &:hover {
+      background-color: #3498db;
+
+      a {
+        color: #ffffff;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .5rem 1rem;
+
+      color: #2c3e50;
+    }
+  }
+}

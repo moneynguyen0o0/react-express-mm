@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 import Helmet from 'react-helmet';
 import Header from 'app/components/core/Header';
 import routes from 'app/routes';
@@ -15,13 +16,15 @@ export default class App extends Component {
       <div className="App">
         <Helmet title={title} meta={meta} />
         <Header />
-        <Switch>
-          {
-            routes.map((route, index) => (
-              <Route key={index} {...route} />
-            ))
-          }
-        </Switch>
+        <Container >
+          <Switch>
+            {
+              routes.map((route, index) => (
+                <Route key={index} {...route} />
+              ))
+            }
+          </Switch>
+        </Container>
       </div>
     );
   }

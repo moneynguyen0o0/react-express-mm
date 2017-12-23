@@ -1,6 +1,6 @@
 import * as URL from 'server/constants/URL';
 import { getPhotos, getUsers } from 'server/api/middleware/Resources';
-import { get as getImages } from 'server/api/middleware/Images';
+import { get as getImages } from 'server/api/middleware/Giphy';
 import middlewarify from 'server/utils/middlewarify';
 
 export default router => {

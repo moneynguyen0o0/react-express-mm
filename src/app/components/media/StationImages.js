@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Row, Col } from 'reactstrap';
 import { array } from 'prop-types';
+import { connect } from 'react-redux';
 
 export default class StationImages extends Component {
   static displayName = 'StationImages'
@@ -14,9 +15,17 @@ export default class StationImages extends Component {
 
     return (
       <div className="StationImages">
-        {
-          images.map((image, index) => (<img key={index} src={image} />))
-        }
+        <Row>
+          {
+            images.map((image, index) => (
+              <Col key={index} xs="6" md="4" lg="3">
+                <div className="StationImages-imageWrapper">
+                  <img src={image} />
+                </div>
+              </Col>
+            ))
+          }
+        </Row>
       </div>
     );
   }
