@@ -15,19 +15,25 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'es2017', 'react'],
-          plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'es2017', 'react'],
+            plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties']
+          }
         }
       },
       {
-        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          publicPath: '/assets/',
-        }
+        test: [/\.ico/, /\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.woff/, /\.woff2/, /\.eot/, /\.otf/, /\.ttf/],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              publicPath: '/assets/'
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,

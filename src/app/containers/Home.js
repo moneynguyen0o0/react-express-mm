@@ -5,8 +5,9 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Page-home">
         <h1>React-Express-MM</h1>
+        <div className="logo"></div>
       </div>
     );
   }
