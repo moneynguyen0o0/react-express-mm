@@ -16,6 +16,7 @@ const html = (markup, state, assets, helmet) => {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+        <link rel="shortcut icon" href="/favicon.ico">
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         <link rel="stylesheet" href="/assets/app.css">

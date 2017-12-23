@@ -7,6 +7,7 @@ import cors from 'cors';
 import compress from 'compression';
 import helmet from 'helmet';
 import logger from 'morgan';
+import favicon from 'serve-favicon';
 import api from 'server/api';
 import renderLayout from 'server/middleware/renderLayout';
 import { notFound, logErrors, handleErrors } from 'server/middleware/errorHandler';
@@ -26,6 +27,7 @@ if (isProduction) {
   app.use(helmet());
 }
 
+app.use(favicon(path.join(__dirname, '..', 'app', 'images', 'favicon.ico')));
 app.use('/assets', express.static(path.join(__dirname, '..', '..', 'public'), { maxAge: 86400000 }));
 
 // enable CORS - Cross Origin Resource Sharing
@@ -58,5 +60,3 @@ app.listen(PORT, () => {
   console.log(`===>  Listening on port: ${PORT}`);
   console.log('------------------------------------');
 });
-
-export default app;

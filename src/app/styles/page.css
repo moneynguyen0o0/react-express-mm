@@ -1,12 +1,4 @@
 .Page {
   &-home {
-    .logo {
-      width: 500px;
-      height: 500px;
-
-      background-image: url("../images/chewy.png");
-      background-repeat: no-repeat;
-      background-size: contain;  
-    }
   }
 }
