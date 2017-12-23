@@ -1,0 +1,16 @@
+{
+  "presets": ["es2015", "es2017", "react"],
+  "plugins": [
+    "add-module-exports",
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-decorators-legacy",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [".js", ".json"]
+      }
+    ]
+  ]
+}

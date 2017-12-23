@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+public
+build
+dist
+.tmp
+.DS_Store
+.sass-cache
+.env
+.c9
+.idea
+.vscode
