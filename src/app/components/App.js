@@ -16,15 +16,17 @@ export default class App extends Component {
       <div className="App">
         <Helmet title={title} meta={meta} />
         <Header />
-        <Container >
-          <Switch>
-            {
-              routes.map((route, index) => (
-                <Route key={index} {...route} />
-              ))
-            }
-          </Switch>
-        </Container>
+        <div className="Main">
+          <Container >
+              <Switch>
+                {
+                  routes.map((route, index) => (
+                    <Route key={index} {...route} />
+                  ))
+                }
+              </Switch>
+          </Container>
+        </div>
       </div>
     );
   }

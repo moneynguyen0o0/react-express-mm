@@ -40,16 +40,24 @@ class Images extends Component {
       const {
         images: {
           original: {
-            url
+            url: imageUrl
           } = {}
+        } = {},
+        user: {
+          avatar_url: avatarUrl,
+          display_name: authorName
         } = {}
       } = data;
 
-      return url;
+      return {
+        imageUrl,
+        avatarUrl,
+        authorName
+      };
     });
 
     return (
-      <div>
+      <div className="Page Page-images">
         <Helmet title="Images" />
         <StationImages images={filteredImages} />
       </div>

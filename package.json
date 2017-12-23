@@ -21,6 +21,7 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "font-awesome": "^4.7.0",
     "helmet": "^3.9.0",
     "ignore-styles": "^5.0.1",
     "method-override": "^2.3.10",

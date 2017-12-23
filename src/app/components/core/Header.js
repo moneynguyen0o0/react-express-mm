@@ -16,7 +16,7 @@ export default class Header extends Component {
     isOpen: false
   }
 
-  toggle = () => {
+  _toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -29,7 +29,7 @@ export default class Header extends Component {
           <NavbarBrand href="/">
           <div className="Header-logo"></div>
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this._toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

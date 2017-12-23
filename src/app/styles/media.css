@@ -1,7 +1,71 @@
 .StationImages {
-  &-imageWrapper {
+  &-item {
+    padding: 15px;
+    background-color: #ffffff;
+  }
+
+  &-thumbnail {
+    cursor: pointer;
+
     img {
       width: 100%;
+      height: 210px;
+
+      object-fit: cover;
     }
+  }
+
+  .ImageControl {
+    padding: 10px 0;
+
+    &-link {
+      float: left;
+    }
+
+    &-react {
+      float: right;
+
+      ul {
+        li {
+          float: left;
+          margin-left: 10px;
+
+          span {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+
+    i, span {
+      color: #bdc3c7;
+    }
+  }
+
+  .Author {
+    &-avatar {
+      width: 25px;
+      height: 25px;
+
+      display: inline-block;
+
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    &-name {
+      display: inline-block;
+      margin-left: 5px;
+      color: #2980b9;
+    }
+  }
+
+  [class*="col-"] {
+    padding: 10px;
   }
 }

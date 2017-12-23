@@ -5,7 +5,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="Page-home">
+      <div className="Page Page-home">
         <h1>React-Express-MM</h1>
       </div>
     );
