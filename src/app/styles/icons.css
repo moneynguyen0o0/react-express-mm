@@ -1,0 +1,22 @@
+.Spinner {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #FFFFFF;
+  text-align: center;
+
+  &-icon {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &-spin {
+    background-image: url('../images/spin.svg');
+  }
+
+  &-bars {
+    background-image: url('../images/bars.svg');
+  }
+}

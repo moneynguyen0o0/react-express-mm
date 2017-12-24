@@ -10,7 +10,7 @@ const getGIFs = (state = [], action) => {
   } = action;
 
   switch (action.type) {
-    case types.FETCH_GIPHY: {
+    case types.FETCH_GIPHY_SUCCESS: {
       return state.concat(data);
     }
     default:
@@ -18,8 +18,20 @@ const getGIFs = (state = [], action) => {
   }
 };
 
-const phraseReducer = combineReducers({
-  images: getGIFs
+const wait = ( state = false, action) => {
+  switch (action.type) {
+    case types.WAIT_GIPHY:
+      return true;
+    case types.FETCH_GIPHY_SUCCESS:
+      return false;
+    default:
+      return state;
+  }
+};
+
+const giphyReducer = combineReducers({
+  images: getGIFs,
+  isWaiting: wait
 });
 
-export default phraseReducer;
+export default giphyReducer;

@@ -1,1 +1,2 @@
-export const FETCH_GIPHY = 'FETCH_GIPHY';
+export const FETCH_GIPHY_SUCCESS = 'FETCH_GIPHY_SUCCESS';
+export const WAIT_GIPHY = 'WAIT_GIPHY';

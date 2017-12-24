@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { object, func } from 'prop-types';
+import { array, bool, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { get as fetchImages } from 'app/flux/actions/giphy';
+import { fetch as fetchImageGIFs } from 'app/flux/actions/giphy';
 import Giphy from 'app/components/media/Giphy';
+import Spinner from 'app/components/icons/Spinner';
 
 class ImageGIFs extends Component {
   static displayName = 'ImageGIFs'
 
   static propTypes = {
-    data: object,
-    fetchImages: func.isRequired
+    images: array,
+    isWaiting: bool,
+    fetchImageGIFs: func.isRequired
   }
 
   static fetchData() {
-    return fetchImages();
+    return fetchImageGIFs();
   }
 
   componentDidMount() {
     const {
-      data: {
-        images = []
-      } = {},
-      fetchImages
+      images,
+      fetchImageGIFs
     } = this.props;
 
     if (!images.length) {
-      fetchImages();
+      fetchImageGIFs();
     }
 
     window.addEventListener('scroll', this._handleScroll);
@@ -50,35 +50,38 @@ class ImageGIFs extends Component {
 
   _loadMore() {
     const {
-      data: {
-        images = []
-      } = {},
-      fetchImages
+      images,
+      fetchImageGIFs
     } = this.props;
 
     const offset = images.length;
 
-    fetchImages(offset);
+    fetchImageGIFs(offset);
   }
 
   render() {
     const {
-      data: {
-        images = []
-      } = {}
+      images,
+      isWaiting
     } = this.props;
 
     return (
       <div className="Page Page-imageGiFs">
         <Helmet title="Funny Images" />
         <Giphy images={images} />
+        {isWaiting && <Spinner />}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  data: state.giphy
-});
+const mapStateToProps = ({ giphy }) => {
+  const { images = [], isWaiting } = giphy;
 
-export default connect(mapStateToProps, { fetchImages })(ImageGIFs);
+  return {
+    images,
+    isWaiting
+  };
+};
+
+export default connect(mapStateToProps, { fetchImageGIFs })(ImageGIFs);
