@@ -1,6 +1,10 @@
 .Page {
-  
-  &-home {
+  &-about {
+    padding: 2em;
 
+    ul {
+      list-style: circle;
+      margin-bottom: 1rem;
+    }
   }
 }

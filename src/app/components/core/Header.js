@@ -36,7 +36,7 @@ export default class Header extends Component {
                 <Link to="/">Home</Link>
               </NavItem>
               <NavItem>
-                <Link to="/funny-images">Funny Images</Link>
+                <Link to="/about">About</Link>
               </NavItem>
             </Nav>
           </Collapse>
