@@ -1,6 +1,6 @@
 import {
   Home,
-  Images,
+  ImageGIFs,
   NotFound
 } from 'app/containers';
 
@@ -11,8 +11,8 @@ export default [
     component: Home
   },
   {
-    path: '/images',
-    component: Images
+    path: '/funny-images',
+    component: ImageGIFs
   },
   {
     component: NotFound

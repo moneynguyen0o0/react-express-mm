@@ -1,10 +1,10 @@
 import * as URL from 'server/constants/URL';
 import { getPhotos, getUsers } from 'server/api/middleware/Resources';
-import { get as getImages } from 'server/api/middleware/Giphy';
+import { get as getGIFs } from 'server/api/middleware/Giphy';
 import middlewarify from 'server/utils/middlewarify';
 
 export default router => {
-  router.get(URL.IMAGES, middlewarify(getImages));
+  router.get(URL.IMAGES, middlewarify(getGIFs));
 
   // Experiments
   router.get(URL.PHOTOS, middlewarify(getPhotos));

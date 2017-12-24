@@ -8,4 +8,4 @@ const fetchSuccess = data => {
   };
 };
 
-export const get = () => dispatch => fetchImages().then(data => dispatch(fetchSuccess(data)));
+export const get = (offset = 0, limit = 20) => dispatch => fetchImages(offset, limit).then(data => dispatch(fetchSuccess(data)));

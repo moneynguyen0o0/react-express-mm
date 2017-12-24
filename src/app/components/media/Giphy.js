@@ -3,8 +3,8 @@ import { Row, Col, Modal, ModalBody } from 'reactstrap';
 import { array, string, bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 
-export default class StationImages extends Component {
-  static displayName = 'StationImages'
+export default class Giphy extends Component {
+  static displayName = 'Giphy'
 
   static propTypes = {
     images: array.isRequired
@@ -30,20 +30,26 @@ export default class StationImages extends Component {
     } = this.state;
 
     return (
-      <div className="StationImages">
+      <div className="Giphy">
         <Row>
           {
             images.map((image, index) => {
               const {
-                imageUrl = '',
-                avatarUrl = '',
-                authorName = ''
+                images: {
+                  original: {
+                    url: imageUrl
+                  } = {}
+                } = {},
+                user: {
+                  avatar_url: avatarUrl,
+                  display_name: authorName
+                } = {}
               } = image;
 
               return (
                 <Col key={index} xs="6" md="4" lg="3">
-                  <div className="StationImages-item">
-                    <div className="StationImages-thumbnail" onClick={this._toggle(imageUrl)}>
+                  <div className="Giphy-item">
+                    <div className="Giphy-thumbnail" onClick={this._toggle(imageUrl)}>
                       <img src={imageUrl} />
                     </div>
                     <ImageControl />

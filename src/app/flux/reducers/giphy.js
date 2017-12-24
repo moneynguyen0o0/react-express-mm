@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as types from 'app/flux/types';
 
-const getImages = (state = [], action) => {
+const getGIFs = (state = [], action) => {
   const {
     payload: {
       data = []
@@ -11,7 +11,7 @@ const getImages = (state = [], action) => {
 
   switch (action.type) {
     case types.FETCH_GIPHY: {
-      return data;
+      return state.concat(data);
     }
     default:
       return state;
@@ -19,7 +19,7 @@ const getImages = (state = [], action) => {
 };
 
 const phraseReducer = combineReducers({
-  images: getImages
+  images: getGIFs
 });
 
 export default phraseReducer;
