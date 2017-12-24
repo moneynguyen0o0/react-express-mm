@@ -1,6 +1,6 @@
 export const API = '/api';
 
-export const PHOTOS = '/photos';
-export const USERS = '/users';
+export const BLOGS = '/blogs';
+export const BLOG = BLOGS + '/:id';
 
 export const IMAGES = '/images';
