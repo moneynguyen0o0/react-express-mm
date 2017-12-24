@@ -68,6 +68,54 @@
   [class*="col-"] {
     padding: 10px;
   }
+
+  @media screen and (max-width: 480px) {
+    &-item {
+      padding: 8px;
+    }
+
+    &-thumbnail {
+      img {
+        height: 180px;
+      }
+    }
+
+    .ImageControl {
+      i, span {
+        font-size: 12px;
+      }
+    }
+
+    .Author {
+      &-name {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    &-item {
+      padding: 5px;
+    }
+
+    &-thumbnail {
+      img {
+        height: 150px;
+      }
+    }
+
+    .ImageControl {
+      i, span {
+        font-size: 10px;
+      }
+    }
+
+    .Author {
+      &-name {
+        font-size: 10px;
+      }
+    }
+  }
 }
 
 .ImageModal {
