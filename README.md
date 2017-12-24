@@ -1,5 +1,7 @@
 # React-Express-MM
 A React Express Boilerplate to get started to development.
+
+View a live demo of this project [here](https://react-express-mm.herokuapp.com/).
 ### Features
 - React
 - Express
@@ -9,7 +11,7 @@ A React Express Boilerplate to get started to development.
 - CSS-Loaders
 - Webpack
 - Babel
-#### To get started
+#### Installation
 ```
 $ git clone https://github.com/moneynguyen0o0/react-express-mm.git <YOUR_PROJECT_NAME>
 $ cd <YOUR_PROJECT_NAME>
