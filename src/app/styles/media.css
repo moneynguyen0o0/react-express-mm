@@ -69,3 +69,18 @@
     padding: 10px;
   }
 }
+
+.ImageModal {
+  display: inline-block;
+  width: auto;
+  max-width: calc(100% - 60px);
+
+  &-dialog {
+    text-align: center;
+  }
+
+  &-img {
+    max-width: 100%;
+    max-height: calc(100vh - 150px);
+  }
+}

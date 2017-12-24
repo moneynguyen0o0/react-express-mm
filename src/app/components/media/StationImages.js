@@ -66,7 +66,6 @@ class ImageModal extends Component {
   static propTypes = {
     imageUrl: string,
     modal: bool,
-    className: string,
     toggle: func
   }
 
@@ -74,14 +73,13 @@ class ImageModal extends Component {
     const {
       imageUrl,
       modal,
-      className,
       toggle
     } = this.props;
 
     return (
-      <Modal isOpen={modal} toggle={toggle} className={className}>
+      <Modal className="ImageModal" modalClassName="ImageModal-dialog" isOpen={modal} toggle={toggle}>
         <ModalBody>
-          <img src={imageUrl} className="img-responsive" />
+          <img src={imageUrl} className="ImageModal-img" />
         </ModalBody>
       </Modal>
     );
@@ -120,9 +118,11 @@ class Author extends Component {
 
     return (
       <div className="Author">
-        <div className="Author-avatar">
+        {
+          avatarUrl && <div className="Author-avatar">
           <img src={avatarUrl} />
         </div>
+        }
         <div className="Author-name">
           {authorName}
         </div>
