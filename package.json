@@ -4,9 +4,9 @@
   "description": "React Express MM",
   "main": "src/server/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack -w & NODE_ENV=development node src/server/index.js",
-    "build": "",
-    "start": ""
+    "dev": "webpack -w & node src/server/index.js",
+    "build": "rm -rf public && webpack -w --progress",
+    "start": "NODE_ENV=production node src/server/index.js"
   },
   "author": "moneynguyen0o0",
   "license": "UNLICENSED",
