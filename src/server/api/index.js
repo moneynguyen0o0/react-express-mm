@@ -1,23 +1,9 @@
 import * as URL from 'server/constants/URL';
-import { getPhotos, getUsers } from 'server/api/middleware/Resources';
-import { get as getGIFs } from 'server/api/middleware/Giphy';
 import middlewarify from 'server/utils/middlewarify';
+import { get as getGIFs } from 'server/api/middleware/Giphy';
 
 export default router => {
   router.get(URL.IMAGES, middlewarify(getGIFs));
-
-  // Experiments
-  router.get(URL.PHOTOS, middlewarify(getPhotos));
-  router.get(URL.USERS, async (req, res, next) => {
-    try {
-      const { data } = await getUsers();
-
-      res.json(data);
-    } catch (err) {
-      //this will eventually be handled by your error handling middleware
-      next(err);
-    }
-  });
-
+  
   return router;
 }
