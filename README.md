@@ -26,5 +26,5 @@ $ npm run dev
 Build and run the production server:
 ```
 $ npm run build
-$ npm run start
+$ npm start
 ```
