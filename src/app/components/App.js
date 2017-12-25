@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Container } from 'reactstrap';
-import Helmet from 'react-helmet';
-import Header from 'app/components/core/Header';
+import { object } from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import loadBranchData from 'shared/utils/loadBranchData';
 import routes from 'app/routes';
-import { title, meta } from 'config/assets';
 
-import 'app/styles/app.css';
-
-export default class App extends Component {
+// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
+class App extends Component {
   static displayName = 'App'
 
+  static contextTypes = {
+    store: object
+  }
+
+  static propTypes = {
+    location: object.isRequired
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { location } = nextProps;
+    const navigated = location !== this.props.location;
+
+    console.log(location, this.props.location);
+    console.log(navigated);
+
+    if (navigated) {
+      const { store } = this.context;
+      const { pathname } = location;
+
+      loadBranchData(store, pathname);
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <Helmet title={title} meta={meta} />
-        <Header />
-        <div className="Main">
-          <Container >
-              <Switch>
-                {
-                  routes.map((route, index) => (
-                    <Route key={index} {...route} />
-                  ))
-                }
-              </Switch>
-          </Container>
-        </div>
-      </div>
-    );
+    return renderRoutes(routes);
   }
 }
+
+export default withRouter(App);

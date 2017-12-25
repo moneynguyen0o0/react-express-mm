@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter, matchPath } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Helmet from 'react-helmet';
 import serialize from 'serialize-javascript';
 
-import App from 'app/components/App';
 import configureStore from 'app/flux/store';
-import routes from 'app/routes';
+import loadBranchData from 'shared/utils/loadBranchData';
+import App from 'app/components/App';
 
 const html = (markup, state, assets, helmet) => {
   return `
@@ -32,28 +32,10 @@ const html = (markup, state, assets, helmet) => {
   `;
 };
 
-const loadData = (store, location) => {
-  const promises = routes.reduce((acc, route) => {
-    const {
-      component: {
-        fetchData
-      } = {}
-    } = route;
-
-    if (matchPath(location, route) && fetchData) {
-      acc.push(Promise.resolve(store.dispatch(fetchData())));
-    }
-
-    return acc;
-  }, []);
-
-  return Promise.all(promises);
-};
-
 const render = location => {
   const store = configureStore();
 
-  return loadData(store, location).then(data => {
+  return loadBranchData(store, location).then(data => {
     console.log(data);
 
     const context = {};

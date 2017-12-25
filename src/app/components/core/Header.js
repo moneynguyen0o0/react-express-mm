@@ -36,6 +36,9 @@ export default class Header extends Component {
                 <Link to="/">Home</Link>
               </NavItem>
               <NavItem>
+                <Link to="/blogs">Blogs</Link>
+              </NavItem>
+              <NavItem>
                 <Link to="/about">About</Link>
               </NavItem>
             </Nav>
