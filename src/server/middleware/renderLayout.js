@@ -34,14 +34,11 @@ const html = (markup, state, assets, helmet) => {
 
 const loadData = (store, location) => {
   const promises = routes.reduce((acc, route) => {
-    const {
-      component: {
-        fetchData
-      } = {}
-    } = route;
+    const { component: { fetchData } } = route;
+    const match = matchPath(location, route);
 
-    if (matchPath(location, route) && fetchData) {
-      acc.push(Promise.resolve(store.dispatch(fetchData())));
+    if (match && fetchData) {
+      acc.push(Promise.resolve(store.dispatch(fetchData(match))));
     }
 
     return acc;

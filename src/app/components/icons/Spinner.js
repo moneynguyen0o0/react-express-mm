@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { oneOf } from 'prop-types';
 
 export default class Spinner extends Component {
+  static displayName = 'Spinner'
+  
   static propTypes = {
     type: oneOf(['spin', 'bars'])
   }
