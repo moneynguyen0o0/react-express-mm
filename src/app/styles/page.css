@@ -1,4 +1,12 @@
 .Page {
+  &-posts {
+    padding: 2em 1em;
+  }
+
+  &-post {
+    padding: 2em 1em;
+  }
+
   &-about {
     padding: 2em;
 

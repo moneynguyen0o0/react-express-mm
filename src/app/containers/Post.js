@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { find as findPost } from 'app/flux/actions/post';
+import PostArticle from 'app/components/news/PostArticle';
 
 class Post extends Component {
   static displayName = 'Post'
@@ -43,15 +43,9 @@ class Post extends Component {
   render() {
     const { post } = this.props;
 
-    const { title = '', body = '' } = post;
-
     return (
       <div className="Page Page-post">
-        <Helmet title={title} />
-        <div>
-          <h1>{title}</h1>
-          <p>{body}</p>
-        </div>
+        <PostArticle post={post} />
       </div>
     );
   }
