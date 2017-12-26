@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { find as findPost } from 'app/flux/actions/post';
+import { getFilteredPost } from 'app/flux/selectors/post';
 import PostArticle from 'app/components/news/PostArticle';
 
 class Post extends Component {
@@ -20,7 +21,7 @@ class Post extends Component {
         id
       } = {}
     } = match;
-    
+
     return findPost(id);
   }
 
@@ -35,7 +36,7 @@ class Post extends Component {
       }
     } = this.props;
 
-    if (_.isEmpty(post)) {
+    if (_.isEmpty(post) || post.id != id) {
       findPost(id);
     }
   }
@@ -45,6 +46,7 @@ class Post extends Component {
 
     return (
       <div className="Page Page-post">
+        {/* Pass the null value to post property to invoke loading or we can use loader component here as well*/}
         <PostArticle post={post} />
       </div>
     );
@@ -52,10 +54,8 @@ class Post extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { post = {} } = state.post;
-
   return {
-    post
+    post: getFilteredPost(state)
   };
 };
 

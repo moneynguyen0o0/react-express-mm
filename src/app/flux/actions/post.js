@@ -1,6 +1,12 @@
 import * as types from 'app/flux/types';
 import { fetchPosts, findPost } from 'app/utils/API';
 
+const wait = () => {
+  return {
+    type: types.WAIT_POST
+  };
+};
+
 const fetchPostsSuccess = data => {
   return {
     type: types.FETCH_POSTS_SUCCESS,
@@ -22,6 +28,8 @@ export const fetchAll = () => dispatch => {
 };
 
 export const find = (id) => dispatch => {
+  dispatch(wait());
+  
   return findPost(id)
     .then(data => dispatch(findPostSuccess(data)))
     .catch(err => console.log('fetchPost', err));
