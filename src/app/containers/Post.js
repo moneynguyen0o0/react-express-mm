@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { find as findPost } from 'app/flux/actions/post';
-import { getFilteredPost } from 'app/flux/selectors/post';
+import { makeGetFilteredPost, getFilteredPost } from 'app/flux/selectors/post';
 import PostArticle from 'app/components/news/PostArticle';
 
 class Post extends Component {
@@ -36,7 +36,7 @@ class Post extends Component {
       }
     } = this.props;
 
-    if (_.isEmpty(post) || post.id != id) {
+    if (_.isEmpty(post)) {
       findPost(id);
     }
   }
@@ -46,16 +46,27 @@ class Post extends Component {
 
     return (
       <div className="Page Page-post">
-        {/* Pass the null value to post property to invoke loading or we can use loading component here as well*/}
         <PostArticle post={post} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+// const makeMapStateToProps = () => {
+//   const getFilteredPost = makeGetFilteredPost();
+//
+//   const mapStateToProps = (state, props) => {
+//     return {
+//       post: getFilteredPost(state, props)
+//     };
+//   };
+//
+//   return mapStateToProps;
+// };
+
+const mapStateToProps = (state, props) => {
   return {
-    post: getFilteredPost(state)
+    post: getFilteredPost(state, props)
   };
 };
 
