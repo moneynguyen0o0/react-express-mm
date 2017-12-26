@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { array } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { slugify } from 'app/utils/StringUtils';
-import withLoader from 'app/components/shared/withLoader';
+import withLoading from 'app/components/shared/withLoading';
 
 class ListPosts extends Component {
   static displayName = 'ListPosts'
@@ -35,4 +35,4 @@ class ListPosts extends Component {
   }
 }
 
-export default withLoader('posts')(ListPosts);
+export default withLoading('posts')(ListPosts);

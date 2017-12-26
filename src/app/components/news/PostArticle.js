@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
 import Helmet from 'react-helmet';
-import withLoader from 'app/components/shared/withLoader';
+import withLoading from 'app/components/shared/withLoading';
 
 class PostArticle extends Component {
   static displayName = 'PostArticle'
@@ -25,4 +25,4 @@ class PostArticle extends Component {
   }
 }
 
-export default withLoader('post')(PostArticle);
+export default withLoading('post')(PostArticle);

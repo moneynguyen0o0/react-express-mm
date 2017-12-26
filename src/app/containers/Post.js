@@ -46,7 +46,7 @@ class Post extends Component {
 
     return (
       <div className="Page Page-post">
-        {/* Pass the null value to post property to invoke loading or we can use loader component here as well*/}
+        {/* Pass the null value to post property to invoke loading or we can use loading component here as well*/}
         <PostArticle post={post} />
       </div>
     );
