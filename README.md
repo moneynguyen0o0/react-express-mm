@@ -1,5 +1,5 @@
 # React-Express-MM
-A React Express Boilerplate to get started to development.
+A very simple boilerplate to get started to development.
 
 View a live demo of this project [here](https://react-express-mm.herokuapp.com/).
 ### Features
