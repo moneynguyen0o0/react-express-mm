@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { find as findPost } from 'app/flux/actions/post';
-import { makeGetFilteredPost, getFilteredPost } from 'app/flux/selectors/post';
+import {
+  // makeGetFilteredPost,
+  getFilteredPost
+} from 'app/flux/selectors/post';
 import PostArticle from 'app/components/news/PostArticle';
 
 class Post extends Component {
@@ -63,6 +66,8 @@ class Post extends Component {
 //
 //   return mapStateToProps;
 // };
+//
+// export default connect(makeMapStateToProps, { findPost })(Post);
 
 const mapStateToProps = (state, props) => {
   return {
