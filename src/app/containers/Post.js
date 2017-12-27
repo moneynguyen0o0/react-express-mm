@@ -66,7 +66,7 @@ class Post extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    post: getFilteredPost(state, props)
+    post: getFilteredPost(state, props) // Clear 'post' in store when navigating to other post
   };
 };
 
