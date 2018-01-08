@@ -4,6 +4,7 @@
 @import './page';
 @import './header';
 @import './media';
+@import './news';
 @import './icons';
 
 body {
