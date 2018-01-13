@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as types from 'app/flux/types';
 
-const calculateSuccess = (state = '', action) => {
+const calculateSuccess = (state = '0', action) => {
   console.log('action here', state)
   const {
     data = '0',

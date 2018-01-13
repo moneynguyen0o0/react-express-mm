@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import Helmet from 'react-helmet';
 import Header from 'app/components/core/Header';
-import Calculator from 'app/components/Calculator';
 import routes from 'app/routes';
 import { title, meta } from 'config/assets';
 import { Switch, Route } from 'react-router-dom';
@@ -19,15 +18,13 @@ export default class App extends Component {
         <Header />
         <div className="Main">
           <Container >
-            <Calculator />
-            {/* <Switch>
+            <Switch>
                 {
                   routes.map((route, index) => (
                     <Route key={index} {...route} />
                   ))
                 }
-              </Switch> */}
-              
+              </Switch>
           </Container>
         </div>
       </div>

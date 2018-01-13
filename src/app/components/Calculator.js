@@ -24,15 +24,15 @@ const BUTTON_TYPES = {
 const CAL_STRUCTURE = {
   row_0: [
     {
-      label: 'CE',
+      label: LABEL.clear_entry,
       type: BUTTON_TYPES.function
     },
     {
-      label: 'C',
+      label: LABEL.clear,
       type: BUTTON_TYPES.function
     },
     {
-      label: 'DEL',
+      label: LABEL.delete,
       type: BUTTON_TYPES.function
     },
     {
@@ -96,7 +96,7 @@ const CAL_STRUCTURE = {
   ],
   row_4: [
     {
-      label: '+/-',
+      label: LABEL.plus_minus,
       type: BUTTON_TYPES.function
     },
     {
@@ -104,7 +104,7 @@ const CAL_STRUCTURE = {
       type: BUTTON_TYPES.number
     },
     {
-      label: '.',
+      label: LABEL.dot,
       type: BUTTON_TYPES.function
     },
     {
@@ -121,7 +121,7 @@ class Calculator extends Component {
     super(props);
 
     this.state = {
-      inputField: '0',
+      inputField: this.props.result,
       displayField: '',
       matrix: []
     }
@@ -161,39 +161,6 @@ class Calculator extends Component {
     }
 
     this.setState({ inputField: newValue, isOperandClicked: false });
-  }
-
-  convertStringToNumber(value) {
-    return value.indexOf('.') ? parseFloat(value) : parseInt(value);
-  }
-
-  calculateResult(value1, value2, operand) {
-    const num1 = this.convertStringToNumber(value1);
-    const num2 = this.convertStringToNumber(value2);
-    let newValue = '0';
-
-    switch(operand) {
-      case '+':
-        newValue = num1 + num2;
-        break;
-
-        case '-':
-        newValue = num1 - num2;
-        break;
-
-        case 'X':
-        newValue = num1 * num2;
-        break;
-
-        case '/':
-        newValue = num1 / num2;
-        break;
-
-      default:
-        break;
-    }
-
-    return newValue.toString();
   }
 
   handleEqualEvent() {
@@ -247,7 +214,6 @@ class Calculator extends Component {
       
     } else {
       if (isOperandClicked) {
-        console.log('why you here');
         newDisplayValue = currentDisplayValue.slice(0, -1) + value;
         newMatrix[1] = value;
       } else {
@@ -333,7 +299,6 @@ class Calculator extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('next props here', nextProps);
     const {
       result,
       isWaiting
@@ -349,7 +314,6 @@ class Calculator extends Component {
 
   render() {
     const title = 'Calculator';
-    const body = 'This is an calculator';
     const { inputField, displayField } = this.state;
     const { isWaiting } = this.props;
 
@@ -385,7 +349,6 @@ class Calculator extends Component {
 }
 
 const mapStateToProps = ({ calculator = {} }) => {
-  console.log(calculator);
   const { result, isWaiting } = calculator;
 
   return {
