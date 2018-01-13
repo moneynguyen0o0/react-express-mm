@@ -15,9 +15,9 @@ class Home extends Component {
     fetchImageGIFs: func.isRequired
   }
 
-  static fetchData() {
-    return fetchImageGIFs();
-  }
+  // static fetchData() {
+  //   return fetchImageGIFs();
+  // }
 
   componentDidMount() {
     const {
@@ -29,11 +29,11 @@ class Home extends Component {
       fetchImageGIFs();
     }
 
-    window.addEventListener('scroll', this._handleScroll);
+    //window.addEventListener('scroll', this._handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this._handleScroll);
+    //window.removeEventListener('scroll', this._handleScroll);
   }
 
   _handleScroll = () => {

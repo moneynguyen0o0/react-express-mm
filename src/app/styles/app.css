@@ -6,6 +6,7 @@
 @import './media';
 @import './news';
 @import './icons';
+@import './calculator';
 
 body {
   margin: 0;

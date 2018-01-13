@@ -11,3 +11,7 @@ export const fetchPosts = () => {
 export const findPost = (id) => {
   return request({ url: '/posts/' + id });
 };
+
+export const handleCalculation = (data) => {
+  return request({ url: '/calculate', data, method: 'post' });
+};

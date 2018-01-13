@@ -32,55 +32,38 @@ const html = (markup, state, assets, helmet) => {
   `;
 };
 
-const loadData = (store, location) => {
-  const promises = routes.reduce((acc, route) => {
-    const { component: { fetchData } } = route;
-    const match = matchPath(location, route);
-
-    if (match && fetchData) {
-      acc.push(Promise.resolve(store.dispatch(fetchData(match))));
-    }
-
-    return acc;
-  }, []);
-
-  return Promise.all(promises);
-};
-
-const render = location => {
+const render = (location) => {
   const store = configureStore();
+  console.log('location here', location);
 
-  return loadData(store, location).then(data => {
-    console.log(data);
+  const context = {};
+  const markup = ReactDOMServer.renderToString(
+    <Provider store={store}>
+      <StaticRouter location={location} context={context}>
+        <App />
+      </StaticRouter>
+    </Provider>
+  );
+  const state = store.getState();
+  console.log('state here', state);
+  const helmet = Helmet.rewind();
 
-    const context = {};
-    const markup = ReactDOMServer.renderToString(
-      <Provider store={store}>
-        <StaticRouter location={location} context={context}>
-          <App />
-        </StaticRouter>
-      </Provider>
-    );
-    const state = store.getState();
-    const helmet = Helmet.rewind();
+  const { url, status = 200 } = context;
 
-    const { url, status = 200 } = context;
+  if (url) {
+    return { status: status || 301, redirect: url };
+  }
 
-    if (url) {
-      return { status: status || 301, redirect: url };
-    }
+  // TODO: handle assets
+  const body = html(markup, state, null, helmet);
 
-    // TODO: handle assets
-    const body = html(markup, state, null, helmet);
-
-    return { status, body };
-  });
+  return { status, body };
 };
 
 export default () => {
-  return async (req, res, next) => {
+  return (req, res, next) => {
     try {
-      const { status, redirect, body } = await render(req.url);
+      const { status, redirect, body } = render(req.url);
 
       res.status(status);
 

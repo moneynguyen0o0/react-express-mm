@@ -1,0 +1,95 @@
+body {
+    background: #777;
+}
+
+#background {
+    width: 300px;
+    height: 400px;
+    background: darkgray;
+    margin: 50px auto;
+}
+
+input {
+    width: 100%;
+    text-align: right;
+}
+
+button {
+    border: 0;
+    color: #fff;
+}
+
+.calculator-field {
+    margin-left: 15px;
+    width: 275px;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.result-field {
+    font-weight: bold;
+    font-size: x-large;
+    height: 45px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.rows {
+    width: 300px;
+    margin: 10px 0 0 10px;
+}
+
+
+/* Button styling */
+
+.btn-style {
+    width: 65px;
+    height: 50px;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+
+/* Adding background color to the number values */
+
+.number-bg {
+    background: #fff;
+    color: #000;
+    font-size: 26px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+}
+
+.number-bg:hover {
+    background: #ccc;
+    color: #000;
+}
+
+.number-bg:active {
+    background: #888;
+    color: #000;
+}
+
+
+/*Adding background color to the operator values */
+
+.operand-bg,
+.function-bg {
+    background: #333;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 3px solid #555;
+}
+
+.operand-bg:active,
+.function-bg:active {
+    background: #333;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: inset 4px 4px 4px #555;
+}
